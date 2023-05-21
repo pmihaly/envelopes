@@ -6,6 +6,7 @@ copyright:           "MIT"
 
 dependencies:
   - base
+  - optparse-applicative == 0.17.0.0
 
 library:
   source-dirs: src

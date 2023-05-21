@@ -22,6 +22,7 @@ library
       src
   build-depends:
       base
+    , optparse-applicative ==0.17.0.0
   default-language: Haskell2010
 
 executable hello
@@ -34,4 +35,5 @@ executable hello
   build-depends:
       base
     , envelopes
+    , optparse-applicative ==0.17.0.0
   default-language: Haskell2010
