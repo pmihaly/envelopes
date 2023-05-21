@@ -1,0 +1,22 @@
+name:                envelopes
+version:             1.0.0.0
+author:              Author name here
+maintainer:          example@example.com
+copyright:           "MIT"
+
+dependencies:
+  - base
+
+library:
+  source-dirs: src
+
+executables:
+  hello:
+    main:                Main.hs
+    source-dirs:         app/hello
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - envelopes
