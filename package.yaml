@@ -12,9 +12,9 @@ library:
   source-dirs: src
 
 executables:
-  hello:
+  envelopes:
     main:                Main.hs
-    source-dirs:         app/hello
+    source-dirs:         app/envelopes
     ghc-options:
     - -threaded
     - -rtsopts
