@@ -1,0 +1,26 @@
+# current state
+envelopes: # HashMap (Id Envelope) Envelope -- to/from json overwritten to display/read as list
+  - name: fun # Envelope { name: Text50; balance: Money }
+    balance: 20k huf
+  - name: emergency
+    balance: 2M huf # Money: to/from json resolves 'k', 'M', here: (Money 2000000 HUF)
+
+applied-transactions: # HashSet (Id Envelope)
+  - fa600778-a6e9-4f6b-97aa-64bac02177c9
+
+
+# events
+transactions: # [Event]
+  - id: fa600778-a6e9-4f6b-97aa-64bac02177c9 # data Event = Spending (Id Event) (Id Envelope) (NonEmpty Positive Money) Date [Tag]
+    type: spending
+    envelope: fun  # if envelope does not exist, create it starting from 0, starting here from (Money -1800 HUF)
+    amount: 1.8k huf
+    date: 2023-12-14T00:00:00Z # Text50
+    tags:
+      - spotify # Text50
+
+  - id: fafe73f0-4a57-483d-8d2f-6ef995b01749
+    type: refill
+    envelope: emergency
+    amount: 500k huf
+    date: 2023-12-14T00:00:00Z
