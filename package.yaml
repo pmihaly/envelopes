@@ -19,7 +19,6 @@ dependencies:
   - QuickCheck == 2.14.2
   - HUnit == 1.6.2.0
   - hspec == 2.9.7
-  - hspec == 2.9.7
 
 ghc-options:
 - -Wall

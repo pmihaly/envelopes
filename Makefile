@@ -9,3 +9,6 @@ format:
 
 test-watch:
 	ghcid --command 'stack ghci envelopes --test --main-is envelopes:test:envelopes-test' --test 'main' --warnings
+
+repl:
+	TERM=dumb stack ghci

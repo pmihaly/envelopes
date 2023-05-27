@@ -12,6 +12,7 @@ value objects:
 - [x] Text50
 - [x] Positive
 - [x] Id
+- [x] ShorthandNumber
 - [ ] Money (Semigroup sum (ignore currency), Monoid 0)
 
 state:
