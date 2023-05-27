@@ -15,6 +15,7 @@ build-type:     Simple
 
 library
   exposed-modules:
+      Data.Wrapper.NonEmpty
       ValueObjects.Text50
   other-modules:
       Paths_envelopes
@@ -97,6 +98,7 @@ test-suite envelopes-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
+      Data.Wrapper.NonEmptySpec
       ValueObjects.Text50Spec
       Paths_envelopes
   hs-source-dirs:
