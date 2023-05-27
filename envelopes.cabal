@@ -16,6 +16,7 @@ build-type:     Simple
 library
   exposed-modules:
       Data.Wrapper.NonEmpty
+      Data.Wrapper.Positive
       ValueObjects.Text50
   other-modules:
       Paths_envelopes
@@ -99,6 +100,7 @@ test-suite envelopes-test
   main-is: Spec.hs
   other-modules:
       Data.Wrapper.NonEmptySpec
+      Data.Wrapper.PositiveSpec
       ValueObjects.Text50Spec
       Paths_envelopes
   hs-source-dirs:
