@@ -7,3 +7,22 @@
 [![AGPL-3.0-only license](https://img.shields.io/badge/license-AGPL--3.0--only-blue.svg)](LICENSE)
 
 See README for more info
+
+value objects:
+- [x] Text50
+- [x] Positive
+- [ ] Id
+- [ ] Money (Semigroup sum (ignore currency), Monoid 0)
+
+state:
+- [ ] Envelope (Semigroup 'x and y', (+), Monoid '' Money.mempty)
+
+event schema & apply events:
+- [ ] Spending
+- [ ] Refill
+
+- [ ] read & write input file
+
+nice to have:
+- [ ] CLI --from-json --to-json
+- [ ] currencies
