@@ -15,7 +15,7 @@ build-type:     Simple
 
 library
   exposed-modules:
-      Lib
+      ValueObjects.Text50
   other-modules:
       Paths_envelopes
   hs-source-dirs:
