@@ -19,6 +19,7 @@ library
       Data.Wrapper.Positive
       Test.ArbitraryInstances
       ValueObjects.Id
+      ValueObjects.Money
       ValueObjects.ShorthandNumber
       ValueObjects.Text50
   other-modules:
@@ -105,6 +106,7 @@ test-suite envelopes-test
       Data.Wrapper.NonEmptySpec
       Data.Wrapper.PositiveSpec
       ValueObjects.IdSpec
+      ValueObjects.MoneySpec
       ValueObjects.ShorthandNumberSpec
       ValueObjects.Text50Spec
       Paths_envelopes

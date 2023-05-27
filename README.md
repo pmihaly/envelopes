@@ -13,7 +13,8 @@ value objects:
 - [x] Positive
 - [x] Id
 - [x] ShorthandNumber
-- [ ] Money (Semigroup sum (ignore currency), Monoid 0)
+- [x] Money ignoring currency
+- [x] Money storing currency as string
 
 state:
 - [ ] Envelope (Semigroup 'x and y', (+), Monoid '' Money.mempty)
@@ -26,4 +27,4 @@ event schema & apply events:
 
 nice to have:
 - [ ] CLI --from-json --to-json
-- [ ] currencies
+- [ ] exchange currencies https://stackoverflow.com/questions/27408873/how-to-model-a-currencies-money-and-banks-that-exchange-money-between-currenci
