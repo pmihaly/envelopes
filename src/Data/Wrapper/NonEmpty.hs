@@ -3,11 +3,12 @@
 module Data.Wrapper.NonEmpty (NonEmpty, unsafeNonEmpty, NonEmptyError (..), mkNonEmpty, unNonEmpty) where
 
 import Data.Aeson (FromJSON (..), Result (..), ToJSON (..), Value (..), fromJSON, withText)
+import Data.Hashable (Hashable)
 import Test.QuickCheck (Arbitrary (..), suchThat)
 
 newtype NonEmpty a = NonEmpty {unNonEmpty :: a}
   deriving (Eq, Semigroup, Monoid)
-  deriving (Show, ToJSON) via a
+  deriving (Show, ToJSON, Hashable) via a
 
 instance (Monoid a, Eq a, FromJSON a) => FromJSON (NonEmpty a) where
   parseJSON = withText "NonEmpty" $ \txt ->

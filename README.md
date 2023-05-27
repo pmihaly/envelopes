@@ -11,7 +11,7 @@ See README for more info
 value objects:
 - [x] Text50
 - [x] Positive
-- [ ] Id
+- [x] Id
 - [ ] Money (Semigroup sum (ignore currency), Monoid 0)
 
 state:

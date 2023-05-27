@@ -17,6 +17,7 @@ library
   exposed-modules:
       Data.Wrapper.NonEmpty
       Data.Wrapper.Positive
+      ValueObjects.Id
       ValueObjects.Text50
   other-modules:
       Paths_envelopes
@@ -101,6 +102,7 @@ test-suite envelopes-test
   other-modules:
       Data.Wrapper.NonEmptySpec
       Data.Wrapper.PositiveSpec
+      ValueObjects.IdSpec
       ValueObjects.Text50Spec
       Paths_envelopes
   hs-source-dirs:
