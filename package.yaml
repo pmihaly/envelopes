@@ -7,6 +7,46 @@ copyright:           "MIT"
 dependencies:
   - base
   - optparse-applicative == 0.17.0.0
+  - containers == 0.6.5.1
+  - hashable == 1.3.5.0
+  - text == 1.2.5.0
+  - aeson == 2.0.3.0
+  - bytestring == 0.11.3.1
+  - scientific == 0.3.7.0
+  - unordered-containers == 0.2.19.1
+  - yaml == 0.11.8.0
+  - microlens-platform == 0.4.3.3
+  - QuickCheck == 2.14.2
+  - HUnit == 1.6.2.0
+  - hspec == 2.9.7
+  - hspec == 2.9.7
+
+ghc-options:
+- -Wall
+- -Wcompat
+- -Widentities
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+- -Wmissing-export-lists
+- -Wmissing-home-modules
+- -Wpartial-fields
+- -Wredundant-constraints
+
+default-extensions:
+- ConstraintKinds
+- DeriveGeneric
+- DerivingStrategies
+- GeneralizedNewtypeDeriving
+- InstanceSigs
+- KindSignatures
+- LambdaCase
+- OverloadedStrings
+- RecordWildCards
+- ScopedTypeVariables
+- StandaloneDeriving
+- TupleSections
+- TypeApplications
+- ViewPatterns
 
 library:
   source-dirs: src
@@ -15,6 +55,17 @@ executables:
   envelopes:
     main:                Main.hs
     source-dirs:         app/envelopes
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - envelopes
+
+tests:
+  envelopes-test:
+    main:                Spec.hs
+    source-dirs:         test
     ghc-options:
     - -threaded
     - -rtsopts
