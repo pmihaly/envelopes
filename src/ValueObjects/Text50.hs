@@ -5,11 +5,12 @@ module ValueObjects.Text50 (Text50, unsafeText50, Text50Error (..), mkText50, un
 import Control.Category ((>>>))
 import Data.Aeson (FromJSON (..), ToJSON, withText)
 import Data.Hashable (Hashable)
+import Data.String (IsString)
 import Data.Text qualified as T
 import Test.QuickCheck (Arbitrary (arbitrary), suchThat)
 
 newtype Text50 = Text50 {unText50 :: T.Text}
-  deriving newtype (Eq, ToJSON, Hashable, Semigroup, Monoid)
+  deriving newtype (Eq, ToJSON, Hashable, Semigroup, Monoid, IsString)
 
 instance FromJSON Text50 where
   parseJSON =

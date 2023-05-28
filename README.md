@@ -17,7 +17,7 @@ value objects:
 - [x] Money storing currency as string
 
 state:
-- [ ] Envelope (Semigroup 'x and y', (+), Monoid '' Money.mempty)
+- [x] Envelope (Semigroup 'x and y', (+), Monoid '' Money.mempty)
 
 event schema & apply events:
 - [ ] Spending

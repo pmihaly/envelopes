@@ -17,6 +17,7 @@ library
   exposed-modules:
       Data.Wrapper.NonEmpty
       Data.Wrapper.Positive
+      Entities.Envelope
       Test.ArbitraryInstances
       ValueObjects.Id
       ValueObjects.Money
@@ -51,6 +52,7 @@ library
     , containers ==0.6.5.1
     , hashable ==1.3.5.0
     , hspec ==2.9.7
+    , microlens ==0.4.13.1
     , microlens-platform ==0.4.3.3
     , optparse-applicative ==0.17.0.0
     , scientific ==0.3.7.0
@@ -91,6 +93,7 @@ executable envelopes
     , envelopes
     , hashable ==1.3.5.0
     , hspec ==2.9.7
+    , microlens ==0.4.13.1
     , microlens-platform ==0.4.3.3
     , optparse-applicative ==0.17.0.0
     , scientific ==0.3.7.0
@@ -105,6 +108,7 @@ test-suite envelopes-test
   other-modules:
       Data.Wrapper.NonEmptySpec
       Data.Wrapper.PositiveSpec
+      Entities.EnvelopeSpec
       ValueObjects.IdSpec
       ValueObjects.MoneySpec
       ValueObjects.ShorthandNumberSpec
@@ -138,6 +142,7 @@ test-suite envelopes-test
     , envelopes
     , hashable ==1.3.5.0
     , hspec ==2.9.7
+    , microlens ==0.4.13.1
     , microlens-platform ==0.4.3.3
     , optparse-applicative ==0.17.0.0
     , scientific ==0.3.7.0
