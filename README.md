@@ -27,4 +27,5 @@ event schema & apply events:
 
 nice to have:
 - [ ] CLI --from-json --to-json
+- [ ] Revolut export month -> events CLI
 - [ ] exchange currencies https://stackoverflow.com/questions/27408873/how-to-model-a-currencies-money-and-banks-that-exchange-money-between-currenci
