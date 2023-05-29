@@ -15,6 +15,7 @@ build-type:     Simple
 
 library
   exposed-modules:
+      Application.State
       Data.Wrapper.NonEmpty
       Data.Wrapper.Positive
       Entities.Envelope
@@ -107,6 +108,7 @@ test-suite envelopes-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
+      Application.StateSpec
       Data.Wrapper.NonEmptySpec
       Data.Wrapper.PositiveSpec
       Entities.EnvelopeSpec

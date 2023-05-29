@@ -23,7 +23,7 @@ event schema & apply events:
 - [ ] Transaction
     - [x] Spending
     - [x] Refill
-- [ ] State (envelopes :: HashMap (Id Envelope) Envelope, appliedTransactions :: HashSet (Id Envelope))
+- [x] State (envelopes :: HashMap (Id Envelope) Envelope, appliedTransactions :: HashSet (Id Envelope))
 - [ ] `applyTransactions :: Foldable f => State -> f Transaction -> Either TransactionError State`
 
 - [ ] read & write input file
