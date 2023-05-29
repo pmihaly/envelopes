@@ -18,6 +18,12 @@ spending = Spending (unsafeId $ unsafeNonEmpty $ unsafeText50 "some-id") (unsafe
 spendingJson :: BSL.ByteString
 spendingJson = "{\"amount\":\"1.50k eur\",\"date\":\"2023-12-14T00:00:00Z\",\"envelope\":\"some-envelope\",\"id\":\"some-id\",\"tags\":[\"tag-1\"],\"type\":\"spending\"}"
 
+refill :: Transaction
+refill = Refill (unsafeId $ unsafeNonEmpty $ unsafeText50 "some-id") (unsafeId $ unsafeNonEmpty $ unsafeText50 "some-envelope") (unsafeNonEmpty $ unsafePositive $ unsafeMoney (ShorthandNumber 1500) "eur") "2023-12-14T00:00:00Z"
+
+refillJson :: BSL.ByteString
+refillJson = "{\"amount\":\"1.50k eur\",\"date\":\"2023-12-14T00:00:00Z\",\"envelope\":\"some-envelope\",\"id\":\"some-id\",\"type\":\"refill\"}"
+
 spec :: Spec
 spec = do
   describe "introduction" $ do
@@ -25,10 +31,16 @@ spec = do
       it "constructs Spending" $
         (eitherDecode spendingJson :: Either String Transaction) `shouldBe` pure spending
 
+      it "constructs Refill" $
+        (eitherDecode spendingJson :: Either String Transaction) `shouldBe` pure spending
+
   describe "elimination" $ do
     describe "toJSON" $ do
       it "eliminates Spending" $
         encode spending `shouldBe` spendingJson
+
+      it "eliminates Refill" $
+        encode refill `shouldBe` refillJson
 
   describe "elimination -> introduction" $ do
     it "toJSON -> fromJSON" $

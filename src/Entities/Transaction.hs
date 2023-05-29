@@ -16,6 +16,7 @@ type Tag = Text50
 
 data Transaction
   = Spending (Id Transaction) (Id Envelope) (NonEmpty (Positive Money)) Date [Tag]
+  | Refill (Id Transaction) (Id Envelope) (NonEmpty (Positive Money)) Date
   deriving (Eq, Show)
 
 instance FromJSON Transaction where
@@ -29,15 +30,25 @@ instance FromJSON Transaction where
         date' <- obj .: "date"
         tags' <- obj .: "tags"
         pure $ Spending id' envelope' amount' date' tags'
+      "refill" -> do
+        id' <- obj .: "id"
+        envelope' <- obj .: "envelope"
+        amount' <- obj .: "amount"
+        date' <- obj .: "date"
+        pure $ Refill id' envelope' amount' date'
       _ -> fail ("Unknown type of event" <> eventType)
 
 instance ToJSON Transaction where
   toJSON (Spending id' envelope' amount' date' tags') =
     object ["id" .= id', "type" .= toString "spending", "envelope" .= envelope', "amount" .= amount', "date" .= date', "tags" .= tags']
+  toJSON (Refill id' envelope' amount' date') =
+    object ["id" .= id', "type" .= toString "refill", "envelope" .= envelope', "amount" .= amount', "date" .= date']
 
 instance Arbitrary Transaction where
-  arbitrary = oneof [spendingGenerator]
+  arbitrary = oneof [spendingGenerator, refillGenerator]
 
--- Generate an arbitrary Spending transaction
 spendingGenerator :: Gen Transaction
 spendingGenerator = Spending <$> arbitrary <*> arbitrary <*> arbitrary <*> arbitrary <*> arbitrary
+
+refillGenerator :: Gen Transaction
+refillGenerator = Refill <$> arbitrary <*> arbitrary <*> arbitrary <*> arbitrary

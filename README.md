@@ -22,7 +22,7 @@ state:
 event schema & apply events:
 - [ ] Transaction
     - [x] Spending
-    - [ ] Refill
+    - [x] Refill
 - [ ] State (envelopes :: HashMap (Id Envelope) Envelope, appliedTransactions :: HashSet (Id Envelope))
 - [ ] `applyTransactions :: Foldable f => State -> f Transaction -> Either TransactionError State`
 
