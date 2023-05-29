@@ -2,11 +2,11 @@ module Entities.EnvelopeSpec (spec) where
 
 import Data.Aeson (decode, encode)
 import Data.Wrapper.NonEmpty (unsafeNonEmpty)
-import Entities.Envelope (Envelope, balance, mkEnvelope, name, unsafeEnvelope)
+import Entities.Envelope (Envelope, balance, mkEnvelope, name, toNothingIfEmpty, unsafeEnvelope)
 import Lens.Micro
 import Test.Hspec
 import Test.QuickCheck
-import ValueObjects.Money (unsafeMoney)
+import ValueObjects.Money (unAmount, unsafeMoney)
 
 spec :: Spec
 spec = do
@@ -34,6 +34,14 @@ spec = do
       it "eliminates a money instance" $
         encode (unsafeEnvelope (unsafeNonEmpty "fun") $ unsafeMoney 1500 "eur")
           `shouldBe` "{\"balance\":\"1.50k eur\",\"name\":\"fun\"}"
+
+    describe "toNothingIfEmpty" $ do
+      it "Money 0 -> Nothing" $ toNothingIfEmpty (unsafeEnvelope (unsafeNonEmpty "fun") $ unsafeMoney 0 "eur") `shouldBe` Nothing
+      it "non zero Money -> Just" $
+        property $ \mon ->
+          ((/= 0) $ unAmount mon)
+            ==> let en = unsafeEnvelope (unsafeNonEmpty "fun") mon
+                 in toNothingIfEmpty en `shouldBe` Just en
 
   describe "elimination -> introduction" $ do
     it "toJSON -> fromJSON" $
