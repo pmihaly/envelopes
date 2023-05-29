@@ -1,4 +1,4 @@
-module Entities.Transaction (Transaction (..)) where
+module Entities.Transaction (Transaction (..), getTransactionId) where
 
 import Data.Aeson (FromJSON (..), ToJSON (..), object, parseJSON, withObject, (.:), (.=))
 import Data.Aeson.Key (fromString, toString)
@@ -52,3 +52,7 @@ spendingGenerator = Spending <$> arbitrary <*> arbitrary <*> arbitrary <*> arbit
 
 refillGenerator :: Gen Transaction
 refillGenerator = Refill <$> arbitrary <*> arbitrary <*> arbitrary <*> arbitrary
+
+getTransactionId :: Transaction -> Id Transaction
+getTransactionId (Spending id' _ _ _ _) = id'
+getTransactionId (Refill id' _ _ _) = id'
