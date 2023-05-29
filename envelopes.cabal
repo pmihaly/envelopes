@@ -18,6 +18,7 @@ library
       Data.Wrapper.NonEmpty
       Data.Wrapper.Positive
       Entities.Envelope
+      Entities.Transaction
       Test.ArbitraryInstances
       ValueObjects.Id
       ValueObjects.Money
@@ -109,6 +110,7 @@ test-suite envelopes-test
       Data.Wrapper.NonEmptySpec
       Data.Wrapper.PositiveSpec
       Entities.EnvelopeSpec
+      Entities.TransactionSpec
       ValueObjects.IdSpec
       ValueObjects.MoneySpec
       ValueObjects.ShorthandNumberSpec

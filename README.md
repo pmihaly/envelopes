@@ -20,8 +20,11 @@ state:
 - [x] Envelope (Semigroup 'x and y', (+), Monoid '' Money.mempty)
 
 event schema & apply events:
-- [ ] Spending
-- [ ] Refill
+- [ ] Transaction
+    - [x] Spending
+    - [ ] Refill
+- [ ] State (envelopes :: HashMap (Id Envelope) Envelope, appliedTransactions :: HashSet (Id Envelope))
+- [ ] `applyTransactions :: Foldable f => State -> f Transaction -> Either TransactionError State`
 
 - [ ] read & write input file
 
