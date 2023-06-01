@@ -29,6 +29,8 @@ event schema & apply events:
 - [ ] read & write input file
 
 nice to have:
-- [ ] CLI --from-json --to-json
 - [ ] Revolut export month -> events CLI
+- [ ] Transaction date is an actual date
+- [ ] Spending Tags is a `NonEmpty [Text50]`
+- [ ] CLI --from-json --to-json
 - [ ] exchange currencies https://stackoverflow.com/questions/27408873/how-to-model-a-currencies-money-and-banks-that-exchange-money-between-currenci
