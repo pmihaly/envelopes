@@ -15,6 +15,7 @@ build-type:     Simple
 
 library
   exposed-modules:
+      Application.InputOutputFile
       Application.PlayTransactions
       Application.State
       Data.Wrapper.NonEmpty
@@ -109,6 +110,7 @@ test-suite envelopes-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
+      Application.InputOutputFileSpec
       Application.PlayTransactionsSpec
       Application.StateSpec
       Data.Wrapper.NonEmptySpec
