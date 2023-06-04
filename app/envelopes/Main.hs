@@ -1,6 +1,12 @@
 module Main (main) where
 
+import Application.InputOutputFile (InputOutputFile (InputOutputFile), state, transactions)
+import Application.PlayTransactions (playTransactions)
+import qualified Data.ByteString.Char8 as BS
+import Data.Yaml (decodeEither', encode)
+import Lens.Micro
 import Options.Applicative
+import System.Exit (die)
 
 data Input
   = FileInput FilePath
@@ -36,5 +42,16 @@ main = execParser opts >>= run
         )
 
 run :: Input -> IO ()
-run (FileInput a) = (readFile a) >>= putStrLn
-run StdInput = getContents >>= putStrLn
+run (FileInput a) = (readFile a) >>= play
+run StdInput = getContents >>= play
+
+play :: String -> IO ()
+play rawFile = do
+  case (decodeEither' $ BS.pack rawFile) of
+    Left err -> die $ show err
+    Right file -> do
+      let state' = (file ^. state)
+      let transactions' = (file ^. transactions)
+      case playTransactions state' transactions' of
+        Left err -> die $ show err
+        Right newState -> BS.putStr $ encode $ InputOutputFile newState transactions'

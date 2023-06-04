@@ -27,7 +27,7 @@ event schema & apply events:
 - [x] `applyTransactions :: Foldable f => State -> f Transaction -> Either TransactionError State`
 - [x] delete envelopes if it contains ~0 money
 
-- [ ] read & write input file
+- [x] read & write input file
 
 nice to have:
 - [ ] Revolut export month -> events CLI
