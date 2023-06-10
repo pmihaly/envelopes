@@ -24,9 +24,9 @@ spec = do
   it "should insert transactionId to appliedTransactions" $
     property $
       \state transaction ->
-        (not $ (getTransactionId transaction) `elem` state ^. appliedTransactions)
-          ==> (\state' -> getTransactionId transaction `elem` (state' ^. appliedTransactions)) <$> playTransactions state [transaction]
-          `shouldBe` pure True
+        (not $ (getTransactionId transaction) `elem` state ^. appliedTransactions) ==>
+          (\state' -> getTransactionId transaction `elem` (state' ^. appliedTransactions)) <$> playTransactions state [transaction]
+            `shouldBe` pure True
 
   describe "idempotence" $ do
     it "should not apply the same transaction twice" $

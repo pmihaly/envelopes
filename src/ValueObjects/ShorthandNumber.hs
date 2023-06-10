@@ -40,9 +40,9 @@ fromText :: T.Text -> Either ShorthandNumberError ShorthandNumber
 fromText fulltext
   | T.null trimmedText = Left $ InvalidNumber fulltext
   | otherwise = do
-    scale <- getScalingFactor suffix
-    parsed <- parseScientific numeric
-    pure $ ShorthandNumber $ parsed * scale
+      scale <- getScalingFactor suffix
+      parsed <- parseScientific numeric
+      pure $ ShorthandNumber $ parsed * scale
   where
     trimmedText = T.strip fulltext
     suffix = T.last trimmedText

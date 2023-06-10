@@ -42,17 +42,21 @@ spec = do
 
   describe "elimination -> introduction" $ do
     it "toText -> fromText" $
-      property $ \money -> fromText (toText money) `shouldBe` pure money
+      property $
+        \money -> fromText (toText money) `shouldBe` pure money
 
     it "toJSON -> fromJSON" $
-      property $ \money -> (decode (encode money) :: Maybe Money) `shouldBe` pure money
+      property $
+        \money -> (decode (encode money) :: Maybe Money) `shouldBe` pure money
 
   describe "Num" $ do
     it "money + money" $
-      property $ \money1 money2 -> unAmount (money1 + money2) `shouldBe` unAmount (money1) + unAmount (money2)
+      property $
+        \money1 money2 -> unAmount (money1 + money2) `shouldBe` unAmount (money1) + unAmount (money2)
 
     it "money - money" $
-      property $ \money1 money2 -> unAmount (money1 - money2) `shouldBe` unAmount (money1) - unAmount (money2)
+      property $
+        \money1 money2 -> unAmount (money1 - money2) `shouldBe` unAmount (money1) - unAmount (money2)
 
   describe "Monoid" $ do
     it "mempty" $ (mempty :: Money) `shouldBe` unsafeMoney 0 ""

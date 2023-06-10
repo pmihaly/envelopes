@@ -39,9 +39,9 @@ spec = do
       it "Money 0 -> Nothing" $ toNothingIfEmpty (unsafeEnvelope (unsafeNonEmpty "fun") $ unsafeMoney 0 "eur") `shouldBe` Nothing
       it "non zero Money -> Just" $
         property $ \mon ->
-          ((/= 0) $ unAmount mon)
-            ==> let en = unsafeEnvelope (unsafeNonEmpty "fun") mon
-                 in toNothingIfEmpty en `shouldBe` Just en
+          ((/= 0) $ unAmount mon) ==>
+            let en = unsafeEnvelope (unsafeNonEmpty "fun") mon
+             in toNothingIfEmpty en `shouldBe` Just en
 
   describe "elimination -> introduction" $ do
     it "toJSON -> fromJSON" $

@@ -31,6 +31,7 @@ data IdError
 
 mkId :: T.Text -> Either IdError (Id a)
 mkId =
-  mkText50 >>> left InvalidText
+  mkText50
+    >>> left InvalidText
     >>> (>>= mkNonEmpty >>> left InvalidEmpty)
     >>> right unsafeId

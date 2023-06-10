@@ -83,7 +83,9 @@ spec = do
          in unShorthandNumber (ShorthandNumber scinum) `shouldBe` scinum
 
     it "toText -> fromText" $
-      property $ \shortnum -> fromText (toText shortnum) `shouldBe` pure shortnum
+      property $
+        \shortnum -> fromText (toText shortnum) `shouldBe` pure shortnum
 
     it "toJSON -> fromJSON" $
-      property $ \shortnum -> (decode (encode shortnum) :: Maybe ShorthandNumber) `shouldBe` pure shortnum
+      property $
+        \shortnum -> (decode (encode shortnum) :: Maybe ShorthandNumber) `shouldBe` pure shortnum

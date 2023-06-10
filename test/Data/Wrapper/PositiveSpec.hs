@@ -14,13 +14,13 @@ spec = do
     describe "mkPositive" $ do
       it "returns left if the input is negative" $
         property $ \(n :: Float) ->
-          n < 0.0
-            ==> mkPositive n `shouldBe` Left NegativeNotAllowed
+          n < 0.0 ==>
+            mkPositive n `shouldBe` Left NegativeNotAllowed
 
       it "constructs if the input is positive" $
         property $ \(n :: Float) ->
-          n >= 0.0
-            ==> mkPositive n `shouldBe` Right (unsafePositive n)
+          n >= 0.0 ==>
+            mkPositive n `shouldBe` Right (unsafePositive n)
 
     describe "parseJSON" $ do
       it "returns left if input is negative" $
