@@ -42,12 +42,12 @@ main = execParser opts >>= run
         )
 
 run :: Input -> IO ()
-run (FileInput a) = (readFile a) >>= play
-run StdInput = getContents >>= play
+run (FileInput a) = (BS.readFile a) >>= play
+run StdInput = BS.getContents >>= play
 
-play :: String -> IO ()
+play :: BS.ByteString -> IO ()
 play rawFile = do
-  case (decodeEither' $ BS.pack rawFile) of
+  case (decodeEither' rawFile) of
     Left err -> die $ show err
     Right file -> do
       let state' = (file ^. state)
