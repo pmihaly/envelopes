@@ -30,7 +30,7 @@ event schema & apply events:
 - [x] read & write input file
 
 nice to have:
-- [ ] Revolut export month -> events CLI
+- [x] Revolut export month -> events CLI
 - [ ] Transaction date is an actual date
 - [ ] Spending Tags is a `NonEmpty [Text50]`
 - [ ] CLI --from-json --to-json

@@ -2,6 +2,7 @@ build:
 	stack build
 
 install:
+	cp bin/revolut.sh ~/.local/bin
 	stack install
 
 format:

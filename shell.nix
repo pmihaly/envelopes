@@ -30,9 +30,9 @@ pkgs.mkShell {
     hoogle
     retrie
     haskell-language-server
-    ormolu
     ghcid
     stack-wrapped
+    pkgs.yq-go
   ];
 
 
