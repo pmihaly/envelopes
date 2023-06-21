@@ -33,6 +33,7 @@ pkgs.mkShell {
     ghcid
     stack-wrapped
     pkgs.yq-go
+    pkgs.moreutils
   ];
 
 

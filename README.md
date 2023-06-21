@@ -8,6 +8,14 @@
 
 See README for more info
 
+
+## Usage
+
+```shell
+envelopes <finances.yaml | sponge finances.yaml
+```
+
+
 value objects:
 - [x] Text50
 - [x] Positive
